@@ -13,6 +13,10 @@
 		BEADA390254935AC00124FFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEADA38E254935AC00124FFE /* Main.storyboard */; };
 		BEADA392254935AF00124FFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEADA391254935AF00124FFE /* Assets.xcassets */; };
 		BEADA395254935AF00124FFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEADA393254935AF00124FFE /* LaunchScreen.storyboard */; };
+		BEEC0D8025639FE4005A3E3C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BEEC0D7E25639F7E005A3E3C /* Icon.png */; };
+		BEEC0D842564A08D005A3E3C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEEC0D822564A08D005A3E3C /* Model.xcdatamodeld */; };
+		BEEC0D88256B5FC4005A3E3C /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEC0D87256B5FC4005A3E3C /* DatabaseController.swift */; };
+		BEEC0D91256B7540005A3E3C /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEC0D90256B7540005A3E3C /* ConnectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		BEADA391254935AF00124FFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEADA394254935AF00124FFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEADA396254935AF00124FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEEC0D7E25639F7E005A3E3C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../../../../../.Trash/AppIcon.appiconset/Icon.png; sourceTree = "<group>"; };
+		BEEC0D832564A08D005A3E3C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		BEEC0D87256B5FC4005A3E3C /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		BEEC0D90256B7540005A3E3C /* ConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		BEADA387254935AC00124FFE /* Project 1 */ = {
 			isa = PBXGroup;
 			children = (
+				BEEC0D7925639DAE005A3E3C /* Images */,
 				BEADA388254935AC00124FFE /* AppDelegate.swift */,
+				BEEC0D87256B5FC4005A3E3C /* DatabaseController.swift */,
 				BEADA38A254935AC00124FFE /* SceneDelegate.swift */,
 				BEADA38C254935AC00124FFE /* ViewController.swift */,
 				BEADA38E254935AC00124FFE /* Main.storyboard */,
 				BEADA391254935AF00124FFE /* Assets.xcassets */,
 				BEADA393254935AF00124FFE /* LaunchScreen.storyboard */,
 				BEADA396254935AF00124FFE /* Info.plist */,
+				BEEC0D822564A08D005A3E3C /* Model.xcdatamodeld */,
+				BEEC0D90256B7540005A3E3C /* ConnectionViewController.swift */,
 			);
 			path = "Project 1";
+			sourceTree = "<group>";
+		};
+		BEEC0D7925639DAE005A3E3C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BEEC0D7E25639F7E005A3E3C /* Icon.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEEC0D8025639FE4005A3E3C /* Icon.png in Resources */,
 				BEADA395254935AF00124FFE /* LaunchScreen.storyboard in Resources */,
 				BEADA392254935AF00124FFE /* Assets.xcassets in Resources */,
 				BEADA390254935AC00124FFE /* Main.storyboard in Resources */,
@@ -137,9 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEEC0D88256B5FC4005A3E3C /* DatabaseController.swift in Sources */,
 				BEADA38D254935AC00124FFE /* ViewController.swift in Sources */,
+				BEEC0D91256B7540005A3E3C /* ConnectionViewController.swift in Sources */,
 				BEADA389254935AC00124FFE /* AppDelegate.swift in Sources */,
 				BEADA38B254935AC00124FFE /* SceneDelegate.swift in Sources */,
+				BEEC0D842564A08D005A3E3C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +363,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BEEC0D822564A08D005A3E3C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BEEC0D832564A08D005A3E3C /* Model.xcdatamodel */,
+			);
+			currentVersion = BEEC0D832564A08D005A3E3C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BEADA37D254935AC00124FFE /* Project object */;
 }

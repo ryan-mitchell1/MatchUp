@@ -8,9 +8,16 @@
 import UIKit
 import CoreLocation
 import MapKit
+import CoreData
 
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    //temp data
+    let loggedInUserId = 1;
+    let selectedCategoryName = "Board Games";
+    //end of temp data
+    
     
     @IBOutlet weak var contentTableView: UITableView!
     @IBOutlet weak var viewSearchAreaButton: UIButton!
@@ -24,7 +31,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var i = 0;
     
-    var profileArray:Array<String> = ["Name: \nRyan Mitchell", "Category: \nBoard Games", "Category Description: \nFind others looking to play board games in your area. Swipe right to try to connect with the user or left to skip.", "User Description: \nI am looking to play board games with others in my area.", "Click 'View Search Area' to see the area in which you may find others!"]
+    var profileArray:Array<String> = []
+    var userArray:Array<Array<String>> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +48,82 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         profileDataTableView.tableFooterView = UIView()
         
+        //adding temp user and category to test
+        let managedObjectContainer = DatabaseController.managedObjectContainer()
+        
+        let category = Category(context: managedObjectContainer.viewContext)
+        category.categoryName = "Board Games"
+        category.categoryDescription = "Find others looking to play board games in your area. Swipe right to try to connect with the user or left to skip."
+        
+        let user = User(context: managedObjectContainer.viewContext)
+        user.categoryName = "Board Games"
+        user.latitude = 37.785834
+        user.longitude = -122.406417
+        user.userDescription = "I am looking to play board games with others in my area."
+        user.name = "Ryan Mitchell"
+        user.userId = 2
+        //end of adding temp user and category
+        
+        let userFetchRequest:NSFetchRequest = User.fetchRequest()
+
+        let fetchPredicate:NSPredicate = NSPredicate(format: "name CONTAINS %@", "Ryan Mitchell") //
+        userFetchRequest.predicate = fetchPredicate
+
+        do{
+            let fetchResults = try managedObjectContainer.viewContext.fetch(userFetchRequest)
+ 
+            if( fetchResults.count > 0 ){
+
+                for user in fetchResults {
+                    profileArray = []
+                    profileArray.append("Name: \n" + user.name!)
+                    profileArray.append("Category: \n" + user.categoryName!)
+                    
+                    let categoryFetchRequest:NSFetchRequest = Category.fetchRequest()
+
+                    let fetchPredicate:NSPredicate = NSPredicate(format: "categoryName CONTAINS %@", user.categoryName!) //
+                    categoryFetchRequest.predicate = fetchPredicate
+
+                    do{
+                        let fetchResults = try managedObjectContainer.viewContext.fetch(categoryFetchRequest)
+             
+                        if( fetchResults.count > 0 ){
+                            let category = fetchResults[0]
+                            profileArray.append("Category Description: \n" + category.categoryDescription!)
+                        }
+                        else{
+                            print("no valid category")
+                        }
+                    }
+                    catch{
+                        print(exception.self)
+                    }
+                    profileArray.append("User Description: \n" + user.userDescription!)
+                    profileArray.append("Click 'View Search Area' to see the area in which you may find others!")
+                    userArray.append(profileArray)
+                }
+            }
+            else{
+                print("no valid users")
+            }
+        }
+        catch{
+            print(exception.self)
+        }
+
+        DatabaseController.saveContext()
+        
+        profileArray = swipeFunctionality()!!
+    
+    }
+    
+    //this will be replaced by the functionality of swipe action
+    func swipeFunctionality() -> Array<String>?? {
+        if(userArray.count > 0){
+            return userArray.popLast()!
+        } else {
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -127,6 +211,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return circle
     }
 
+    @IBAction func onConnectionsTap(_ sender: Any) {
+        performSegue(withIdentifier: "ConnectionsSegue", sender: self)
+    }
 }
 
 
