@@ -40,11 +40,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="dA1-R9-uId">
-                                <rect key="frame" x="87" y="132" width="240" height="180"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-rK-UkI">
-                                <rect key="frame" x="126" y="660" width="163" height="39"/>
+                                <rect key="frame" x="126" y="740" width="163" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Y6x-tR-UhT"/>
                                     <constraint firstAttribute="width" constant="163" id="wF0-xi-xTb"/>
@@ -56,7 +53,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q65-rZ-L7u">
-                                <rect key="frame" x="126" y="577" width="163" height="39"/>
+                                <rect key="frame" x="126" y="657" width="163" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="4lw-gG-JKG"/>
                                     <constraint firstAttribute="width" constant="163" id="IAg-cQ-SM6"/>
@@ -67,19 +64,22 @@
                                     <action selector="loginTapped:" destination="yA4-OD-fxL" eventType="touchUpInside" id="kkY-5n-fKy"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="dA1-R9-uId">
+                                <rect key="frame" x="66" y="88" width="283" height="213"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ka6-Di-RR5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ka6-Di-RR5" firstAttribute="trailing" secondItem="lJY-rK-UkI" secondAttribute="trailing" constant="125" id="0nw-jJ-vUu"/>
                             <constraint firstItem="lJY-rK-UkI" firstAttribute="leading" secondItem="ka6-Di-RR5" secondAttribute="leading" constant="126" id="2ou-J3-ThL"/>
-                            <constraint firstItem="q65-rZ-L7u" firstAttribute="top" relation="lessThanOrEqual" secondItem="dA1-R9-uId" secondAttribute="bottom" constant="313" id="64K-aK-ZVb"/>
-                            <constraint firstItem="dA1-R9-uId" firstAttribute="top" secondItem="ka6-Di-RR5" secondAttribute="top" constant="44" id="6ap-I5-vbB"/>
+                            <constraint firstItem="q65-rZ-L7u" firstAttribute="top" relation="lessThanOrEqual" secondItem="dA1-R9-uId" secondAttribute="bottom" constant="356" id="64K-aK-ZVb"/>
+                            <constraint firstItem="dA1-R9-uId" firstAttribute="top" secondItem="ka6-Di-RR5" secondAttribute="top" id="6ap-I5-vbB"/>
                             <constraint firstItem="ka6-Di-RR5" firstAttribute="trailing" secondItem="q65-rZ-L7u" secondAttribute="trailing" constant="125" id="6fM-Ra-cyY"/>
-                            <constraint firstItem="ka6-Di-RR5" firstAttribute="bottom" secondItem="lJY-rK-UkI" secondAttribute="bottom" constant="163" id="Nzv-jl-r94"/>
+                            <constraint firstItem="ka6-Di-RR5" firstAttribute="bottom" secondItem="lJY-rK-UkI" secondAttribute="bottom" constant="83" id="Nzv-jl-r94"/>
                             <constraint firstItem="q65-rZ-L7u" firstAttribute="leading" secondItem="ka6-Di-RR5" secondAttribute="leading" constant="126" id="Zju-Is-hOd"/>
-                            <constraint firstItem="ka6-Di-RR5" firstAttribute="trailing" secondItem="dA1-R9-uId" secondAttribute="trailing" constant="87" id="dLt-gB-YOv"/>
-                            <constraint firstItem="dA1-R9-uId" firstAttribute="leading" secondItem="ka6-Di-RR5" secondAttribute="leading" constant="87" id="eJs-IN-8tB"/>
+                            <constraint firstItem="ka6-Di-RR5" firstAttribute="trailing" secondItem="dA1-R9-uId" secondAttribute="trailing" constant="65" id="dLt-gB-YOv"/>
+                            <constraint firstItem="dA1-R9-uId" firstAttribute="leading" secondItem="ka6-Di-RR5" secondAttribute="leading" constant="66" id="eJs-IN-8tB"/>
                             <constraint firstItem="lJY-rK-UkI" firstAttribute="top" secondItem="q65-rZ-L7u" secondAttribute="bottom" constant="44" id="kQc-TE-Rag"/>
                         </constraints>
                     </view>
@@ -646,12 +646,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cnH-Bg-sA4"/>
+        <segue reference="PWA-sd-Bm4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.07524033462214387" green="0.14421916575684454" blue="0.83022684010152281" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="GreenCheck" width="24" height="24"/>
-        <image name="Icon.png" width="180" height="180"/>
+        <image name="Icon" width="512" height="512"/>
         <image name="RedX" width="24" height="24"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="labelColor">
